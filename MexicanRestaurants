@@ -1,0 +1,44 @@
+Select *
+FROM dbo.['just tacos and burritos$']
+
+--Check for null values in city column
+
+SELECT 
+city
+FROM 
+dbo.['just tacos and burritos$']
+WHERE city is NULL
+
+--Familiarize myself with countries included in dataset
+
+SELECT DISTINCT
+country
+FROM 
+dbo.['just tacos and burritos$']
+
+--Duplicate postalCode column, so it can be converted into state name
+
+ALTER TABLE dbo.['just tacos and burritos$']
+ADD State varchar(255);
+
+UPDATE dbo.['just tacos and burritos$']
+SET State = postalCode
+
+-- Convert state postalcode into state name so we can count number of resturants selling tacos and burritos in each state.
+
+SELECT state
+FROM dbo.['just tacos and burritos$']
+WHERE State BETWEEN 99501 and 99950;
+
+Update dbo.['just tacos and burritos$']
+SET State = 'Alaska'
+WHERE State BETWEEN 99501 and 99950;
+
+
+SELECT state
+FROM dbo.['just tacos and burritos$']
+WHERE State BETWEEN 80001 and 81658;
+
+Update dbo.JustTacosAndBurritos
+SET State = 'CO'
+WHERE State BETWEEN 80001 and 81658;
