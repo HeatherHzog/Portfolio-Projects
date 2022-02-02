@@ -394,6 +394,12 @@ Update [Mexican-Food].[dbo].['just tacos and burritos$']
 SET province = 'TX'
 WHERE postalCode = 75068
 --------------------------------------------------------------------------------------------------------
+--Count number of restraunts in each state that sell mexican food (tacos and burritos)
+
+SELECT state, Count(*) as number_restaurants
+FROM [Mexican-Food].[dbo].['just tacos and burritos$']
+GROUP BY state
+--------------------------------------------------------------------------------------------------------
 ---For the last step I renamed the province column
 -- in the SQL selections I renamed the province column to the state column
 
